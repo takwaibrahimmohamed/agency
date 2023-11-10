@@ -1,0 +1,474 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+  body{
+    overflow-x: hidden;
+    font-family: sans-serif;
+    background-color: #fafafa;
+/* height: 1000px; */
+  }
+  ul{
+    list-style: none;
+   
+  }
+  header{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: transparent; /* Initial background color */
+    transition: background-color 0.7s ease;
+  z-index: 15;
+  height: 70px;
+  }
+  header.scrolled {
+    background-color: white; /* Background color on scroll */
+    transition: 0.7s ease;
+  }
+ 
+  
+  header .logo img {
+    /* height: 50px; Initial logo size */
+    transition: 0.7s ease;
+  }
+  
+  header.scrolled .logo img {
+    /* height: 30px; Logo size on scroll */
+  }
+  
+  .container{
+    padding-left:5% ;
+    padding-right:5% ;
+  }
+  .navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 67px;
+    font-weight: 500;
+  }
+ 
+  header .links{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  header .links .linksList{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  }
+  header .links ul .linksListLi{
+    text-transform: capitalize;
+    font-size: 15px;
+    cursor: pointer;
+    transition: .1s ease;
+    position: relative;
+    color: white;
+  }
+  header .links ul .linksListLi.scrolled{
+    color: black;
+  }
+  .links ul li:hover{
+    color: #ff7425;
+
+  }
+  header .dropdown{
+ 
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    align-items: self-start;
+position: absolute;
+left: -40px;
+top: calc(100% + 10px);
+    opacity: 0;
+    visibility: hidden;
+    width: 220px;
+    background-color: #fff;
+    list-style-type: none;
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+    border-radius: 3px;
+    transition: .4s;
+  }
+  .links ul li:hover .dropdown{
+    opacity: 1;
+    visibility: visible;
+  }
+  .links .dropdown li{
+    color: #262626;
+  
+    border-bottom: 1px solid #eee;
+    width:100%;
+    padding:20px;
+  }
+  .links .dropdown li:last-child{
+    border-bottom: none;
+  
+  }
+  .links .dropdown li:hover{
+    padding-left: 25px;
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+
+   
+  }
+  .butonside{
+    display: flex;
+    gap: 20px;
+    
+  }
+  .butonside .btn{
+    padding: 14px 28px;
+
+    border-radius: 5px;
+    color: white;
+    transition: .5s;
+    cursor: pointer;
+    position: relative;
+    border: 1px solid white;
+    letter-spacing: 1px;
+   text-transform: capitalize;
+  }
+  .butonside .btn.scrolled{
+    border: 1px solid black;
+    color: black;
+  }
+  .butonside .btn::before{
+
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background-color: black;
+    transition: all .6s;
+    
+    z-index: -1;
+    
+  }
+  
+  .butonside .btn:hover,.butonside .btn.icon:hover{
+    color: white;
+    background-color: transparent;
+    
+  }
+  .butonside .btn.scrolled:hover{
+    color: white;
+  }
+  .butonside .btn:hover::before{
+  height: 100%;
+ border-radius: 5px;
+}
+  .butonside .btn.icon{
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    background-color: #ff7425;
+    border: none;
+    font-size: 20px;
+    position: relative;
+   
+  }
+
+  /* start motion  */
+  .motion{
+    background-image:url("https://agentieco.themetags.com/wp-content/uploads/2023/05/hero-bg.png");
+    background-position: center right;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 120vh;
+    position: relative;
+  
+  }
+  .motion .overlay{
+    background-color: transparent;
+    background-image: linear-gradient(88.79deg, #0E0E0E 31.81%, #00000000 97.23%);
+    opacity: 1;
+    transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    z-index: 11;
+
+  }
+  .motion .container{
+    width: 100%;
+  }
+  .motion .content{
+    display: flex;
+    margin-right: auto;
+    margin-left: auto;
+    position: absolute;
+    z-index: 12;
+    top: 25%;
+    justify-content: space-between;
+  }
+  .motion .box{
+    width: 50%;
+    min-height: 1;
+  }
+  .motion .box .info,.aboutUs .content .box .info{
+   display: flex;
+   flex-direction: column;
+   gap: 15px;
+  }
+  .motion .box .info h4,.aboutUs .content .box .info h4,  .Achievement .content .box h4{
+    color: #FF7425;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+position: relative;
+left: 75px;
+font-size: 1.5rem;
+  }
+  .motion .box .info h4 .line, .anounce .anouncebox h5 .line,.aboutUs .content .box .info h4 .line,  .Achievement .content .box h4 .line{
+    
+  
+    width: 60px;
+    height: 3px;
+    background-color: #FF7425;
+    display: block;
+    position: absolute;
+    left: -13%;
+    top: 50%;
+  }
+  .motion .box .info h2,.aboutUs .content .box .info .secondTitle{
+    color: #FFFFFF;
+    font-size: 65px;
+    font-weight: 800;
+    line-height: 1.2em;
+    writing-mode: horizontal-tb;
+    transform: rotate(0deg);
+  }  .motion .box .info h2 span{
+    background-image: url(https://agentieco.themetags.com/wp-content/uploads/2023/05/curve-line.svg);
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    color: #FF7425;
+  }
+  .motion .box .info p{
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: #C8CFD5;
+    font-size: 20px;
+    line-height: 2.5;
+  }
+ 
+  .motion .box .btn ,.aboutUs .content .box .btn{
+    background-color: #FF7425;
+    border-radius: 3px 3px 3px 3px;
+    padding: 16px 24px 16px 24px;
+    writing-mode: horizontal-tb;
+    color: #fff;
+    width: fit-content;
+    letter-spacing: 1.1px;
+    font-size: 15px;
+  }
+  .motion .box .btn i,  .anounce .anouncebox .btn i,.aboutUs .content .box .btn i{
+    transform:rotate(25deg);
+    padding-left:5px
+  }
+  .motion .Secbox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .motion .Secbox .circle{
+    background-image: url(https://agentieco.themetags.com/wp-content/uploads/2023/05/attonce.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: absolute;
+    /* animation: circleForever 15s 2s linear infinite both; */
+ 
+  }
+  .motion .Secbox .circle img{
+    -webkit-animation: 5s circleForever linear infinite;
+    animation: 10s circleForever linear infinite;
+  }
+@keyframes circleForever {
+	0% {
+		transform: rotate(0deg);
+	}
+	50% {
+		transform: rotate(180deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+  /* end motion  */
+  /* start anounce */
+  .anounce{
+    background-image: url(https://agentieco.themetags.com/wp-content/uploads/2023/05/bg_crub.png);
+    background-position: top right;
+    background-repeat: no-repeat;
+    background-size: 80% auto;
+    height: 100vh;
+    position: relative;
+    z-index: 13;
+    top: 110vh;
+   
+  }
+  .anounce .anouncecontent{
+    display: flex;
+    justify-content:center;
+    align-items: start;
+    position: absolute;
+    left: 35%;
+    top: 10%;
+    gap: 100px;
+  }
+  .anounce .anouncebox {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .anounce .anouncebox h5{
+    color: #FF7425;
+    font-size: 22px;
+    font-weight: 600;
+    position: relative;
+    left: 55px;
+  }
+  .anounce .anouncebox h5 .line{
+ width: 50px;
+    left: -13%;
+  }
+  .anounce .anouncebox h3{
+    font-weight: 800;
+    line-height: 1.2;
+    color: #262626;
+    font-size: 1.5rem;
+
+  }
+
+  .anounce .anouncebox .btn{
+    font-weight: 500;
+    line-height: 1.75em;
+    background-color: #181818;
+    border-radius: 3px 3px 3px 3px;
+    padding: 16px 24px 16px 24px;
+    writing-mode: horizontal-tb;
+    font-size: 15px;
+    color: white;
+    letter-spacing: 1.1;
+  }
+
+  /* end anounce */
+  /*start aboutUs  */
+  .aboutUs{
+    padding-top: 200px;
+    position: relative;
+    z-index: 11;
+  }
+  .aboutUs .content{
+display: flex;
+/* gap: 100px; */
+  }
+  .aboutUs .content .box{
+width: 50%;
+  }
+  .aboutUs .content .box .info{
+background-color: #FAFAFA;
+justify-content: flex-start;
+height: 100%;
+padding-right: 10px;
+  }
+  .aboutUs .content .box .info .title{
+    color: #00000000;
+    font-size: 70px;
+    font-weight: 800;
+    text-transform: uppercase;
+    -webkit-text-stroke-width: 1px;
+    stroke-width: 1px;
+    -webkit-text-stroke-color: #8686861A;
+    stroke: #8686861A;
+  }
+
+  .aboutUs .content .box .info .secondTitle{
+    color: #0E0E0E;
+    font-size: 40px;
+    line-height: 1.6;
+  }
+  .aboutUs .content .box .info .secondTitle span{
+    color: #FF7425;
+  }
+  .aboutUs .content .box .info p{
+    color: #4D5056;
+    font-weight: 400;
+    line-height: 1.7rem;
+  }
+.aboutUs .content .Secbox {
+  display: flex;
+  justify-content: end;
+}
+.aboutUs .content .Secbox img{
+  width: 100%;
+}
+  /* end aboutUs*/
+  /* start Achievement*/
+  .Achievement{
+    background-color: #0E0E0E;
+    color: white;
+    margin-top: -100px;
+    margin-bottom: 100px;
+    /* padding-bottom: 100px; */
+    position: relative;
+  }
+  .Achievement .content{
+    display: flex;
+  align-items: center;
+  }
+  .Achievement .content .Secbox{
+    margin-top: 10%;
+  }
+  .Achievement .content .box img{
+  position: relative;
+  z-index: 12;
+    width: 90%;
+    margin-top: 50px;
+    margin-bottom: -50px;
+  }
+  .Achievement .content .box h4{
+    margin-bottom: 10px;
+  }
+  .Achievement .content .box h4 .line{
+    left: -11%;
+  }
+  .Achievement .content .box .info{
+    display: flex;
+    gap: 30px;
+  }
+  .Achievement .content .box .info .ratedProject{
+    display: flex;
+    flex-direction: column;
+   gap: 10px;
+   align-items: flex-start;
+   justify-content: flex-start;
+  }
+  .Achievement .content .box .info .ratedProject h2{
+    color: #FFFFFF;
+    font-size: 45px;
+    font-weight: 800;
+    line-height: 1em;
+    letter-spacing: 1.1px
+  }
+  .Achievement .content .box .info .ratedProject p{
+    color: #FFFFFF;
+    font-size: 16px;
+  }
+  /* end Achievement*/
