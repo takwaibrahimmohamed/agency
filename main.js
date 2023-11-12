@@ -1,4 +1,5 @@
 let started = false
+const slideContainer = document.querySelector('.testmonSlide');
 window.addEventListener('scroll', function() {
     const header = document.querySelector('header');
     const logo = document.querySelector('header .logo img');
@@ -45,3 +46,11 @@ if(el.textContent == goal){
 }
    },2000 / goal)
   }
+ 
+
+function nextSlide() {
+  slideContainer.style.transform = 'translateX(-100%)';
+  slideContainer.appendChild(slideContainer.firstElementChild);
+}
+// 
+setInterval(nextSlide, 4000);
